@@ -1,3 +1,10 @@
+# 正規表現を使ってパスの一部を置換
+import re
+ver = re.compile('v\d\d\d\d')
+path = 'hoge/hoge/hoge.v0001.%04d.exr'
+new_path = ver.sub('v0002', path)
+# >>Result: hoge/hoge/hoge.v0002.%04d.exr
+
 # Get import module path
 import mymodule
 mymodule.__file__
