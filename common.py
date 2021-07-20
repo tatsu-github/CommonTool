@@ -14,3 +14,10 @@ import os
 path = 'SERVER/project/ep01/sq01/s01/maya/cache'
 if os.path.exists(path) == 0:
     os.makedirs(path)
+
+# set GUI position monitor center
+self.desktop = QtGui.qApp.desktop()
+screen_number = self.desktop.screenNumber( QtGui.QCursor().pos() )
+self.resize(400, 200)
+screen = QtWidgets.QDesktopWidget().screenGeometry(screen_number)
+self.move(screen.center()-self.frameGeometry().center())
