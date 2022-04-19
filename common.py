@@ -12,7 +12,7 @@ mymodule.__file__
 # Get directory existence and create if not exist
 import os
 path = 'SERVER/project/ep01/sq01/s01/maya/cache'
-if os.path.exists(path) == 0:
+if not os.path.exists(path):
     os.makedirs(path)
 
 # set GUI position monitor center
