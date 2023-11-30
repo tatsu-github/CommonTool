@@ -21,3 +21,6 @@ screen_number = self.desktop.screenNumber( QtGui.QCursor().pos() )
 self.resize(400, 200)
 screen = QtWidgets.QDesktopWidget().screenGeometry(screen_number)
 self.move(screen.center()-self.frameGeometry().center())
+
+# calculate motion blur length from shutter angle
+length = (shutter_angle / 360.0) * (24.0 / shoot_fps)
