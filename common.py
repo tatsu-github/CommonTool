@@ -24,3 +24,20 @@ self.move(screen.center()-self.frameGeometry().center())
 
 # calculate motion blur length from shutter angle
 length = (shutter_angle / 360.0) * (24.0 / shoot_fps)
+
+# Return v#### to V####+1
+def get_up_ver():
+    cur_file_name = self.filename_le.text()
+    pattern = '.*?(_v(\d+)).*'  # set search pattern _v####
+    get_ver = re.search(pattern, cur_file_name)  # get _v####
+    
+    if get_ver:
+        cur_ver_number = int(get_ver.group(2))  # pick number from _v####
+        new_ver_number = cur_ver_number + 1
+        new_ver_str = str(new_ver_number).zfill(len(get_ver.group(2)))
+        new_file_name = re.sub(r'(_v\d+)', '_v{}'.format(new_ver_str), cur_file_name)
+        self.filename_le.setText(new_file_name)  # update UI file name to up version
+        return True
+    else:
+        print('This file name has no version number')
+        return False
