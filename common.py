@@ -23,7 +23,8 @@ screen = QtWidgets.QDesktopWidget().screenGeometry(screen_number)
 self.move(screen.center()-self.frameGeometry().center())
 
 # calculate motion blur length from shutter angle
-length = (shutter_angle / 360.0) * (24.0 / shoot_fps)
+# shoot_fps for High Speed camera
+length = (shutter_angle / 360.0) * (plate_fps / shoot_fps)
 
 # Return v#### to V####+1
 def get_up_ver():
