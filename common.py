@@ -9,6 +9,12 @@ new_path = ver.sub('v0002', path)
 import mymodule
 mymodule.__file__
 
+# Relative Module Import
+import importlib
+package_name = __package__
+module = importlib.import_module(package_name)
+my_module_name = getattr(module, 'my_module_name')  # from __package__ import dino_change_permission
+
 # Get directory existence and create if not exist
 import os
 path = 'SERVER/project/ep01/sq01/s01/maya/cache'
